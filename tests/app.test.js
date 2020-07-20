@@ -11,3 +11,14 @@ describe('GET users listed as living in london', () => {
       });
   });
 });
+
+describe('GET users within 50 miles of london', () => {
+  it('returns 200 and a list of users within 50 miles of london', () => {
+    return request(app)
+      .get('/api/withinfiftyoflondon')
+      .expect(200)
+      .then(({ body }) => {
+        expect(body).toHaveProperty('users');
+      });
+  });
+});
