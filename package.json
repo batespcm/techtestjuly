@@ -1,10 +1,17 @@
 {
-  "name": "techTestDWP",
+  "name": "techtestdwp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "nodemon listen.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "repository": {
     "type": "git",
@@ -16,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/batespcm/techTestDWP/issues"
   },
-  "homepage": "https://github.com/batespcm/techTestDWP#readme"
+  "homepage": "https://github.com/batespcm/techTestDWP#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "eslint-config-airbnb": "^18.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
 }
