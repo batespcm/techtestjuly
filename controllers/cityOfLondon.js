@@ -17,6 +17,5 @@ exports.withinFiftyMilesOfLondon = (req, res, next) => {
       );
     });
     res.status(200).send({ users: withinFifty });
-    console.log(withinFifty);
   });
 };
