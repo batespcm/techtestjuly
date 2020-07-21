@@ -1,11 +1,4 @@
-const { londonListed, allUsers } = require('../models/users.model');
-
-// Latitude of 51.509865 & Longitude 0.118092 taken from latlong.net
-
-const latNorth = 52.2332;
-const latSouth = 50.78653;
-const longWest = -1.2802;
-const longEast = 1.044016;
+const { londonListed, allUsersWithinFifty } = require('../models/users.model');
 
 exports.listedInLondon = (req, res) => {
   londonListed().then(users => {
@@ -14,15 +7,16 @@ exports.listedInLondon = (req, res) => {
 };
 
 exports.withinFiftyMilesOfLondon = (req, res, next) => {
-  allUsers().then(users => {
-    const withinFifty = users.filter(user => {
-      return (
-        parseFloat(user.latitude) >= latSouth &&
-        parseFloat(user.latitude) <= latNorth &&
-        parseFloat(user.longitude) >= longWest &&
-        parseFloat(user.longitude) <= longEast
-      );
-    });
-    res.status(200).send({ users: withinFifty });
+  allUsersWithinFifty().then(users => {
+    res.status(200).send({ users });
+  });
+};
+
+exports.bothCombined = (req, res, next) => {
+  const withinRadius = allUsersWithinFifty();
+  const cityLondon = londonListed();
+  Promise.all([withinRadius, cityLondon]).then(([fiftyRadius, londonBased]) => {
+    const users = [...fiftyRadius, ...londonBased];
+    return res.status(200).send({ users });
   });
 };
