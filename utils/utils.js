@@ -5,7 +5,7 @@ const latSouth = 50.78653;
 const longWest = -1.2802;
 const longEast = 1.044016;
 
-exports.withinFifty = users => {
+exports.isWithinFifty = users => {
   const filteredUsers = users.filter(user => {
     return (
       parseFloat(user.latitude) >= latSouth &&

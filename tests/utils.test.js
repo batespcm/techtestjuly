@@ -1,4 +1,4 @@
-const { withinFifty } = require('../utils/utils');
+const { isWithinFifty } = require('../utils/utils');
 
 describe('filters out the users who are not within fifty miles of london', () => {
   it('it takes one user who is not within fifty and returns an empty array', () => {
@@ -13,7 +13,7 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 10.0572553
       }
     ];
-    expect(withinFifty(user)).toEqual([]);
+    expect(isWithinFifty(user)).toEqual([]);
   });
 });
 
@@ -30,7 +30,7 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 0.0572553
       }
     ];
-    expect(withinFifty(user)).toEqual(user);
+    expect(isWithinFifty(user)).toEqual(user);
   });
 });
 
@@ -56,7 +56,7 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 10.0572553
       }
     ];
-    expect(withinFifty(users)).toEqual([
+    expect(isWithinFifty(users)).toEqual([
       {
         id: 266,
         first_name: 'Ancell',
@@ -92,7 +92,7 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 10.0572553
       }
     ];
-    expect(withinFifty(users)).toEqual([]);
+    expect(isWithinFifty(users)).toEqual([]);
   });
 });
 
@@ -127,7 +127,7 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 0.3860497
       }
     ];
-    expect(withinFifty(users)).toEqual(users);
+    expect(isWithinFifty(users)).toEqual(users);
   });
 });
 
@@ -162,6 +162,6 @@ describe('filters out the users who are not within fifty miles of london', () =>
         longitude: 0.3860497
       }
     ];
-    expect(withinFifty(users)).not.toBe(users);
+    expect(isWithinFifty(users)).not.toBe(users);
   });
 });
