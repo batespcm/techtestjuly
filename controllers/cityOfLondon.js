@@ -1,5 +1,7 @@
 const { londonListed, allUsers } = require('../models/users.model');
 
+// Latitude of 51.509865 & Longitude 0.118092 taken from latlong.net
+
 const latNorth = 52.2332;
 const latSouth = 50.78653;
 const longWest = -1.2802;
