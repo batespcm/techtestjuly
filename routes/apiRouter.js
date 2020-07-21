@@ -1,8 +1,8 @@
 const apiRouter = require('express').Router();
+const listedLondonRouter = require('./listedlondonRouter');
+const withinFiftyOfLondonRouter = require('./withinFiftyOfLondonRouter');
 
-// const liveInLondonRouter = require('./liveInLondonRouter');
-
-apiRouter.route('/');
-// apiRouter.use('/liveinlondon', liveInLondonRouter);
+apiRouter.use('/listedinlondon', listedLondonRouter);
+apiRouter.use('/withinfiftyoflondon', withinFiftyOfLondonRouter);
 
 module.exports = apiRouter;
