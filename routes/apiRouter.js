@@ -5,6 +5,6 @@ const combinedRouter = require('./combinedRouter');
 
 apiRouter.use('/listedinlondon', listedLondonRouter);
 apiRouter.use('/withinfiftyoflondon', withinFiftyOfLondonRouter);
-apiRouter.use('/combined', combinedRouter);
+apiRouter.use('/londoncombined', combinedRouter);
 
 module.exports = apiRouter;

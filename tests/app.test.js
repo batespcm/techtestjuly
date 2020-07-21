@@ -41,10 +41,10 @@ describe('GET users within 50 miles of london', () => {
   });
 });
 
-describe('GET users listed as living in london', () => {
-  it('returns 200 and a list of users registed as living in london', () => {
+describe('GET users listed as living in london or within a 50 mile radius', () => {
+  it('returns 200 and a list of users under London city or within a 50 mile radius', () => {
     return request(app)
-      .get('/api/combined')
+      .get('/api/londoncombined')
       .expect(200)
       .then(({ body }) => {
         expect(body).toHaveProperty('users');
