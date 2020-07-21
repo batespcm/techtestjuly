@@ -8,6 +8,15 @@ describe('GET users listed as living in london', () => {
       .expect(200)
       .then(({ body }) => {
         expect(body).toHaveProperty('users');
+        body.users.forEach(user => {
+          expect(user).toHaveProperty('id');
+          expect(user).toHaveProperty('first_name');
+          expect(user).toHaveProperty('last_name');
+          expect(user).toHaveProperty('email');
+          expect(user).toHaveProperty('ip_address');
+          expect(user).toHaveProperty('latitude');
+          expect(user).toHaveProperty('longitude');
+        });
       });
   });
 });
@@ -19,6 +28,15 @@ describe('GET users within 50 miles of london', () => {
       .expect(200)
       .then(({ body }) => {
         expect(body).toHaveProperty('users');
+        body.users.forEach(user => {
+          expect(user).toHaveProperty('id');
+          expect(user).toHaveProperty('first_name');
+          expect(user).toHaveProperty('last_name');
+          expect(user).toHaveProperty('email');
+          expect(user).toHaveProperty('ip_address');
+          expect(user).toHaveProperty('latitude');
+          expect(user).toHaveProperty('longitude');
+        });
       });
   });
 });
