@@ -11,8 +11,22 @@ exports.londonListed = () => {
     });
 };
 
-exports.allUsers = () => {
+exports.allUsersWithinFifty = () => {
+  // Latitude of 51.509865 & Longitude 0.118092 taken from latlong.net
+  const latNorth = 52.2332;
+  const latSouth = 50.78653;
+  const longWest = -1.2802;
+  const longEast = 1.044016;
+
   return axios.get('https://bpdts-test-app.herokuapp.com/users').then(res => {
-    return res.data;
+    const withinFifty = res.data.filter(user => {
+      return (
+        parseFloat(user.latitude) >= latSouth &&
+        parseFloat(user.latitude) <= latNorth &&
+        parseFloat(user.longitude) >= longWest &&
+        parseFloat(user.longitude) <= longEast
+      );
+    });
+    return withinFifty;
   });
 };
