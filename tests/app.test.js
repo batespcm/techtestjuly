@@ -40,3 +40,23 @@ describe('GET users within 50 miles of london', () => {
       });
   });
 });
+
+describe('GET users listed as living in london', () => {
+  it('returns 200 and a list of users registed as living in london', () => {
+    return request(app)
+      .get('/api/combined')
+      .expect(200)
+      .then(({ body }) => {
+        expect(body).toHaveProperty('users');
+        body.users.forEach(user => {
+          expect(user).toHaveProperty('id');
+          expect(user).toHaveProperty('first_name');
+          expect(user).toHaveProperty('last_name');
+          expect(user).toHaveProperty('email');
+          expect(user).toHaveProperty('ip_address');
+          expect(user).toHaveProperty('latitude');
+          expect(user).toHaveProperty('longitude');
+        });
+      });
+  });
+});
