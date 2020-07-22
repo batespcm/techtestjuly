@@ -1,4 +1,4 @@
-const { londonListed, allUsersWithinRadius } = require('../utils/apiCalls');
+const { londonListed, allUsersWithinRadius } = require('../utils/apiClient');
 
 exports.usersInLondon = (req, res) => {
   londonListed().then(users => {
