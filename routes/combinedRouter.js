@@ -1,5 +1,5 @@
 const combinedRouter = require('express').Router();
-const { bothCombined } = require('../controllers/cityOfLondon');
+const { bothCombined } = require('../controllers/users.controller');
 
 combinedRouter.route('/').get(bothCombined);
 
