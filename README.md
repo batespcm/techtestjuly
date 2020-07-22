@@ -9,9 +9,9 @@ Longitude 0.118092
 
 ## What Endpoints are being tested
 
-- GET /api/listedinlondon - Responds with everyone listed in the api from the endpoint city/London/users
-- GET /api/withinfiftyoflondon - Responds all users whose latitude and longitude is listed within the requirments able from the endpoint /users
-- GET /api/londoncombined - Responds with an amalgamation of the two routes above
+- GET /api/usersinlondon - Responds with everyone listed in the api from the endpoint city/London/users
+- GET /api/userswithinfifty - Responds all users whose latitude and longitude is listed within the requirments able from the endpoint /users
+- GET /api/users - Responds with an amalgamation of the two routes above
 
 ## Tests
 

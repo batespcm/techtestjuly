@@ -1,4 +1,4 @@
-const { londonListed, allUsersWithinFifty } = require('../utils/apiCalls');
+const { londonListed, allUsersWithinRadius } = require('../utils/apiCalls');
 
 exports.usersInLondon = (req, res) => {
   londonListed().then(users => {
@@ -6,8 +6,9 @@ exports.usersInLondon = (req, res) => {
   });
 };
 
-exports.usersWithinFiftyMilesOfLondon = (req, res, next) => {
-  allUsersWithinFifty().then(users => {
+exports.usersWithinRadiusOfLondon = (req, res, next) => {
+  const { miles } = req.params;
+  allUsersWithinRadius(miles).then(users => {
     res.status(200).send({ users });
   });
 };
