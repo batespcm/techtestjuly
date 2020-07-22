@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { isWithinFifty } = require('../utils/utils');
+const { isWithinRadius } = require('../utils/utils');
 
 // prevent CORS Error when running Jest Test
 axios.defaults.adapter = require('axios/lib/adapters/http');
@@ -40,6 +40,6 @@ exports.allUsersWithinFifty = () => {
   const longEast = 1.044016;
 
   return axios.get('https://bpdts-test-app.herokuapp.com/users').then(res => {
-    return isWithinFifty(res.data);
+    return isWithinRadius(res.data);
   });
 };
