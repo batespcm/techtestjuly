@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const apiRouter = require('./routes/apiRouter.js');
-const { handleInternalErrors } = require('./controllers/error.controller');
+const { handleInternalErrors } = require('./controllers/error.controllers');
 
 app.use(cors());
 
