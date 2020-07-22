@@ -1,11 +1,9 @@
 const geolib = require('geolib');
 
-exports.isWithinRadius = users => {
+exports.isWithinRadius = (users, miles) => {
   const latitudeLondon = 51.509865;
 
   const longitudeLondon = 0.118092;
-
-  let miles = 50;
 
   const milesToMetres = miles * 1609;
 

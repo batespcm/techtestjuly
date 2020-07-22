@@ -12,8 +12,8 @@ exports.londonListed = () => {
     });
 };
 
-exports.allUsersWithinFifty = () => {
+exports.allUsersWithinRadius = miles => {
   return axios.get('https://bpdts-test-app.herokuapp.com/users').then(res => {
-    return isWithinRadius(res.data);
+    return isWithinRadius(res.data, miles);
   });
 };
