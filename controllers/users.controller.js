@@ -1,7 +1,8 @@
-const { londonListed, allUsersWithinRadius } = require('../utils/apiClient');
+const { getUsersByCity, allUsersWithinRadius } = require('../utils/apiClient');
 
-exports.usersInLondon = (req, res) => {
-  londonListed().then(users => {
+const getUsersInCity = (req, res) => {
+  const { city_name } = req.params;
+  getUsersByCity(city_name).then(users => {
     res.status(200).send({ users });
   });
 };
@@ -23,7 +24,6 @@ exports.bothCombined = (req, res, next) => {
   const distance = parseInt(miles, 10);
   if (distance === 'NaN') {
     distance = 0;
-    console.log(distance);
   }
   const withinRadius = allUsersWithinRadius(distance);
   const cityLondon = londonListed();
@@ -32,3 +32,5 @@ exports.bothCombined = (req, res, next) => {
     res.status(200).send({ users });
   });
 };
+
+module.exports = { getUsersInCity };
