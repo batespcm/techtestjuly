@@ -14,7 +14,8 @@ exports.usersWithinRadiusOfLondon = (req, res, next) => {
 };
 
 exports.bothCombined = (req, res, next) => {
-  const withinRadius = allUsersWithinFifty();
+  const { miles } = req.params;
+  const withinRadius = allUsersWithinRadius(miles);
   const cityLondon = londonListed();
   Promise.all([withinRadius, cityLondon]).then(([fiftyRadius, londonBased]) => {
     const users = [...fiftyRadius, ...londonBased];
