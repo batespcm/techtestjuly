@@ -8,8 +8,13 @@ exports.usersInLondon = (req, res) => {
 
 exports.usersWithinRadiusOfLondon = (req, res, next) => {
   const { miles } = req.params;
-  allUsersWithinRadius(miles).then(users => {
-    res.status(200).send({ users });
+  const distance = parseInt(miles, 10);
+  allUsersWithinRadius(distance).then(users => {
+    if (users.length === 0) {
+      res.status(404).send({ msg: 'Please enter a number and try again' });
+    } else {
+      res.status(200).send({ users });
+    }
   });
 };
 
