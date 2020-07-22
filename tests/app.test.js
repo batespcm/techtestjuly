@@ -49,6 +49,7 @@ describe('GET users listed as living in london or within a 50 mile radius', () =
       .expect(200)
       .then(({ body }) => {
         expect(body).toHaveProperty('users');
+        expect(body.users.length).toEqual(9);
         body.users.forEach(user => {
           expect(user).toHaveProperty('id');
           expect(user).toHaveProperty('first_name');
