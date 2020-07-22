@@ -20,4 +20,3 @@ exports.isWithinRadius = users => {
   });
   return filteredUsers;
 };
-s;
