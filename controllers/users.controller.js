@@ -1,12 +1,12 @@
-const { londonListed, allUsersWithinFifty } = require('../models/users.model');
+const { londonListed, allUsersWithinFifty } = require('../utils/apiCalls');
 
-exports.listedInLondon = (req, res) => {
+exports.usersInLondon = (req, res) => {
   londonListed().then(users => {
     res.status(200).send({ users });
   });
 };
 
-exports.withinFiftyMilesOfLondon = (req, res, next) => {
+exports.usersWithinFiftyMilesOfLondon = (req, res, next) => {
   allUsersWithinFifty().then(users => {
     res.status(200).send({ users });
   });
