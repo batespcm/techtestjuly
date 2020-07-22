@@ -1,7 +1,7 @@
 const { isWithinRadius } = require('../utils/isWithinRadius.util');
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('it takes one user who is not within fifty and returns an empty array', () => {
+describe('Given an array of users, when provided a radius ', () => {
+  it('Then it filters out those who are outside that radius, here return no users', () => {
     const miles = 50;
     const user = [
       {
@@ -16,10 +16,8 @@ describe('filters out the users who are not within fifty miles of london', () =>
     ];
     expect(isWithinRadius(user, miles)).toEqual([]);
   });
-});
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('it takes one user who is not within fifty and returns that user', () => {
+  it('Then it takes one user who is not within fifty and returns that user', () => {
     const miles = 50;
     const user = [
       {
@@ -34,10 +32,8 @@ describe('filters out the users who are not within fifty miles of london', () =>
     ];
     expect(isWithinRadius(user, miles)).toEqual(user);
   });
-});
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('it takes two users one within 50 and one not within fifty and returns only the valid user', () => {
+  it('Then it takes two users one within 50 and one not within fifty and returns only the valid user', () => {
     const miles = 50;
     const users = [
       {
@@ -71,10 +67,8 @@ describe('filters out the users who are not within fifty miles of london', () =>
       }
     ]);
   });
-});
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('it takes two users not within 50 and returns an empty array', () => {
+  it('Then it takes two users not within 50 and returns an empty array', () => {
     const miles = 50;
     const users = [
       {
@@ -98,10 +92,8 @@ describe('filters out the users who are not within fifty miles of london', () =>
     ];
     expect(isWithinRadius(users, miles)).toEqual([]);
   });
-});
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('it takes multiple correct users and returns them all', () => {
+  it('Tnen it takes multiple correct users and returns them all', () => {
     const miles = 50;
     const users = [
       {
@@ -134,10 +126,8 @@ describe('filters out the users who are not within fifty miles of london', () =>
     ];
     expect(isWithinRadius(users, miles)).toEqual(users);
   });
-});
 
-describe('filters out the users who are not within fifty miles of london', () => {
-  it('check it does not mutate the original array', () => {
+  it('Then it does not mutate the original array', () => {
     const miles = 50;
     const users = [
       {
