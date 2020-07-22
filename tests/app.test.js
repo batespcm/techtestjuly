@@ -2,7 +2,7 @@ const app = require('../app');
 const request = require('supertest');
 const { isWithinRadius } = require('../utils/utils');
 
-describe('When radius is given an invalid path returns a 404', () => {
+describe('When radius is given an either as a word or a number with no results returns a 404', () => {
   test('returns a status: 404 for an invalid path', () => {
     return request(app)
       .get('/api/usersradius/dd')
