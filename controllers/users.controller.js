@@ -20,10 +20,15 @@ exports.usersWithinRadiusOfLondon = (req, res, next) => {
 
 exports.bothCombined = (req, res, next) => {
   const { miles } = req.params;
-  const withinRadius = allUsersWithinRadius(miles);
+  const distance = parseInt(miles, 10);
+  if (distance === 'NaN') {
+    distance = 0;
+    console.log(distance);
+  }
+  const withinRadius = allUsersWithinRadius(distance);
   const cityLondon = londonListed();
-  Promise.all([withinRadius, cityLondon]).then(([fiftyRadius, londonBased]) => {
-    const users = [...fiftyRadius, ...londonBased];
-    return res.status(200).send({ users });
+  Promise.all([withinRadius, cityLondon]).then(([radius, londonBased]) => {
+    const users = [...radius, ...londonBased];
+    res.status(200).send({ users });
   });
 };

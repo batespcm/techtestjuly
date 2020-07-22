@@ -13,6 +13,17 @@ describe('When radius is given an either as a word or a number with no results r
   });
 });
 
+// describe('When radius is given an either as a word or a number with no results returns a 404', () => {
+//   test('returns a status: 404 for an invalid path', () => {
+//     return request(app)
+//       .get('/api/londoncombined/dd')
+//       .expect(404)
+//       .then(({ body }) => {
+//         expect(body.msg).toEqual('Please enter a number and try again');
+//       });
+//   });
+// });
+
 describe('GET users listed as living in london', () => {
   it('returns 200 and a list of users registed as living in london', () => {
     return request(app)
