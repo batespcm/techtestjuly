@@ -1,4 +1,4 @@
-const { getUsersByCity, allUsersWithinRadius } = require('../utils/apiClient');
+const { getUsersByCity, getUsersWithinRadius } = require('../utils/apiClient');
 
 const getUsersInCity = (req, res) => {
   const { city_name } = req.params;
@@ -7,10 +7,10 @@ const getUsersInCity = (req, res) => {
   });
 };
 
-exports.usersWithinRadiusOfLondon = (req, res, next) => {
+const getWithinRadiusOfLondon = (req, res, next) => {
   const { miles } = req.params;
   const distance = parseInt(miles, 10);
-  allUsersWithinRadius(distance).then(users => {
+  getUsersWithinRadius(distance).then(users => {
     if (users.length === 0) {
       res.status(404).send({ msg: 'Please enter a number and try again' });
     } else {
@@ -33,4 +33,4 @@ exports.bothCombined = (req, res, next) => {
   });
 };
 
-module.exports = { getUsersInCity };
+module.exports = { getUsersInCity, getWithinRadiusOfLondon };

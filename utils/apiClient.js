@@ -13,10 +13,10 @@ const getUsersByCity = city_name => {
   });
 };
 
-const allUsersWithinRadius = distance => {
+const getUsersWithinRadius = distance => {
   return axios.get(`${baseUrl}/users`).then(res => {
     return isWithinRadius(res.data, distance);
   });
 };
 
-module.exports = { getUsersByCity, allUsersWithinRadius };
+module.exports = { getUsersByCity, getUsersWithinRadius };
