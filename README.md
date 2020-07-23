@@ -9,7 +9,7 @@ Longitude 0.118092
 
 ## What Endpoints are being tested
 
-- GET /api/users/city/:city - Responds with everyone in a city e.g. london
+- GET /api/users/city/:city - Responds with everyone in a city e.g. london, the endpoint is not case sensitive
 - GET /api/users/radius/:miles - Responds with all the users within the required radius of London, e.g. 50 will return all users within a radius of 50
 
 ## Tests
