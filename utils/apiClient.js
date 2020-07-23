@@ -7,7 +7,6 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 const baseUrl = 'https://bpdts-test-app.herokuapp.com';
 
 const getUsersByCity = city_name => {
-  // code this to take city as a param
   return axios.get(`${baseUrl}/city/${city_name}/users`).then(res => {
     return res.data;
   });
