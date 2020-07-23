@@ -1,9 +1,6 @@
 const usersRouter = require('express').Router();
-const {
-  usersWithinRadiusOfLondon,
-  getUsersInCity
-} = require('../controllers/users.controller');
+const { getUsersInCity } = require('../controllers/users.controller');
 
-usersRouter.route('/:city_name', getUsersInCity);
+usersRouter.route('/:city_name').get(getUsersInCity);
 
 module.exports = usersRouter;
