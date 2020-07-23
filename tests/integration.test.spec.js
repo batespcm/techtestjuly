@@ -1,4 +1,5 @@
 const { isWithinRadius } = require('../utils/isWithinRadius.util');
+const { capitaliseEveryWord } = require('../utils/stringToUppercase.util');
 
 describe('Given an array of users, when provided a radius ', () => {
   it('Then it filters out those who are outside that radius, here return no users', () => {
@@ -159,5 +160,22 @@ describe('Given an array of users, when provided a radius ', () => {
       }
     ];
     expect(isWithinRadius(users, miles)).not.toBe(users);
+  });
+});
+
+describe('When given a word a word it capitalises it ', () => {
+  it('Then it takes the single word london and returns London', () => {
+    const word = 'london';
+    expect(capitaliseEveryWord(word)).toEqual('London');
+  });
+
+  it('Then it takes the multiple words Cape verde and returns Cape Verde', () => {
+    const word = 'Cape verde';
+    expect(capitaliseEveryWord(word)).toEqual('Cape Verde');
+  });
+
+  it('Then it takes the multiple words cape verde and returns Cape Verde', () => {
+    const word = 'cape verde';
+    expect(capitaliseEveryWord(word)).toEqual('Cape Verde');
   });
 });

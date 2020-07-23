@@ -1,6 +1,6 @@
 const geolib = require('geolib');
 
-exports.isWithinRadius = (users, distance) => {
+const isWithinRadius = (users, distance) => {
   const latitudeLondon = 51.509865;
 
   const longitudeLondon = 0.118092;
@@ -18,3 +18,5 @@ exports.isWithinRadius = (users, distance) => {
   });
   return filteredUsers;
 };
+
+module.exports = { isWithinRadius };
